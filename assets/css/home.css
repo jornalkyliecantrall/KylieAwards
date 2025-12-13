@@ -1,0 +1,147 @@
+/* ==========================================
+   HERO - TELA CHEIA COM VÍDEO
+========================================== */
+.hero {
+    position: relative;
+    height: 100vh;        /* Tela cheia */
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ======== VÍDEO DE FUNDO ======== */
+#bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover; /* mantém o vídeo cobrindo toda a tela */
+
+    /* 🔥 Ajuste AQUI a posição visível do vídeo */
+    object-position: center center;
+
+    /*
+       Sugestões:
+       object-position: top center;
+       object-position: bottom center;
+       object-position: center left;
+       object-position: center right;
+       object-position: 50% 25%;  (ajuste fino)
+    */
+
+    z-index: -1;
+}
+
+/* ==========================================
+   LOGO E TEXTO NO CENTRO DA TELA
+========================================== */
+.hero-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+    color: white;
+    z-index: 2;
+}
+
+.logo-central {
+    width: 250px;
+    max-width: 80%;
+    filter: drop-shadow(0 0 15px #000);
+}
+
+.hero-center h2 {
+    margin-top: 15px;
+    font-size: 26px;
+    opacity: 0.9;
+}
+
+
+/* ==========================================
+   SEÇÃO DE CATEGORIAS
+========================================== */
+.categorias-lista {
+    padding: 50px 5%;
+    text-align: center;
+    background: #080b12;
+    color: #fff;
+}
+
+.categorias-lista h2 {
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+.grid-categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+    margin-top: 20px;
+}
+
+.categoria-card {
+    background: #0d111c;
+    padding: 18px;
+    border-radius: 12px;
+    font-size: 18px;
+    text-decoration: none;
+    color: #fff;
+    transition: 0.25s;
+    border: 1px solid #20263a;
+}
+
+.categoria-card:hover {
+    transform: translateY(-6px);
+    background: #141a2b;
+    border-color: #009dff;
+}
+
+
+/* ==========================================
+   RODAPÉ
+========================================== */
+footer {
+    position: relative;
+    padding: 30px;
+    background: #03040a;
+    text-align: center;
+    color: #aaa;
+}
+
+.logo-footer {
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+    width: 80px;
+    opacity: 0.4;
+}
+
+
+/* ==========================================
+   RESPONSIVIDADE (CELULAR)
+========================================== */
+@media (max-width: 600px) {
+    .logo-central {
+        width: 180px;
+    }
+
+    .hero-center h2 {
+        font-size: 20px;
+    }
+
+    .categoria-card {
+        font-size: 16px;
+        padding: 15px;
+    }
+
+    .grid-categorias {
+        gap: 15px;
+    }
+}
