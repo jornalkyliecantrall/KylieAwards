@@ -5,7 +5,7 @@ function login() {
 
     if (senha === SENHA_ADM) {
         sessionStorage.setItem("adm", "true");
-        window.location.href = "adm-painel.html";
+        window.location.href = "categorias.html";
     } else {
         alert("Senha incorreta");
     }
