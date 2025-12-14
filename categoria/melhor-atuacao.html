@@ -2,53 +2,57 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <title>Kylie Awards – Melhor Atuação</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kylie Awards</title>
-    <h1 class="categoria-titulo">10 Minute Songs</h1>
-    <script src="../assets/js/votar.js"></script>
 
-
-    <!-- LIGAÇÃO COM O CSS -->
-    <link rel="stylesheet" href="../assets/CSS/categorias-pages.CSS">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/categorias-pages.css">
 </head>
 
 <body>
 
+    <!-- TÍTULO -->
+    <h1 class="categoria-titulo">Melhor Atuação</h1>
+
+    <!-- CARDS -->
     <div class="card-container">
 
-        <div class="card">
-            <img src="../assets/img/10_Minute_Songs.jpg" alt="Like a Movie">
-            <h3>Like a Movie</h3>
+        <div class="card" data-item="Gabby Duran">
+            <img src="../assets/img/Gabby_Duran.jpg" alt="Gabby Duran">
+            <h3>Gabby Duran</h3>
             <p>Kylie Cantrall</p>
-
             <button class="btn-votar">Votar</button>
         </div>
 
-        <div class="card">
-            <img src="../assets/img/10_Minute_Songs.jpg" alt="Dear Diary">
-            <h3>Dear Diary</h3>
+        <div class="card" data-item="High School Music The Series">
+            <img src="../assets/img/Hihg_School_Musical.jpg" alt="High School Music The Series">
+            <h3>High School Music The Series</h3>
             <p>Kylie Cantrall</p>
-
             <button class="btn-votar">Votar</button>
         </div>
 
-        <div class="card">
-            <img src="../assets/img/10_Minute_Songs.jpg" alt="Mascara">
-            <h3>Mascara</h3>
+        <div class="card" data-item="Descendentes 4">
+            <img src="../assets/img/Descendentes4.jpg" alt="Descendentes 4">
+            <h3>Descendentes 4</h3>
             <p>Kylie Cantrall</p>
-
-            <button class="btn-votar">Votar</button>
-        </div>
-
-        <div class="card">
-            <img src="../assets/img/10_Minute_Songs.jpg" alt="PUT THE RECORD ON">
-            <h3>PUT THE RECORD ON</h3>
-            <p>Kylie Cantrall</p>
-
             <button class="btn-votar">Votar</button>
         </div>
 
     </div>
+
+        <footer class="site-footer">
+    <p>© Todos os Direitos Reservados à Jornal Kylie Cantrall 2025</p>
+    <img src="../assets/img/Logo_Grammy.png" class="logo-footer" alt="logo">
+    <a href="sobre.html" class="sobre">Sobre a Premiação</a>
+</footer>
+
+    </div>
+
+    <!-- NOTIFICAÇÃO -->
+    <div id="toast" class="toast"></div>
+
+    <!-- JS -->
+    <script src="../assets/js/votar.js" defer></script>
 
 </body>
 </html>

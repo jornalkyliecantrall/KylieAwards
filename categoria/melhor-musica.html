@@ -2,21 +2,76 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Melhor Música</title>
-    <link rel="stylesheet" href="../assets/css/global.css">
-    <link rel="stylesheet" href="../assets/css/categorias-pages.css">
+    <title>Kylie Awards – Melhor Música</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src="../assets/js/votar.js" defer></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/categorias-pages.css">
 </head>
+
 <body>
 
-<h1>Melhor Música</h1>
+    <!-- TÍTULO -->
+    <h1 class="categoria-titulo">Melhor Música</h1>
 
-<div class="opcoes">
-    <button onclick="votar('melhor-musica', 'MusicA')">Music A</button>
-    <button onclick="votar('melhor-musica', 'MusicB')">Music B</button>
-    <button onclick="votar('melhor-musica', 'MusicC')">Music C</button>
-</div>
+    <!-- CARDS -->
+    <div class="card-container">
+
+        <div class="card" data-item="Denim">
+            <img src="../assets/img/Denim.jpg" alt="DENIM">
+            <h3>DENIM</h3>
+            <p>Kylie Cantrall</p>
+            <button class="btn-votar">Votar</button>
+        </div>
+
+        <div class="card" data-item="Goodie Bag">
+            <img src="../assets/img/Goodie_Bag.jpg" alt="Goodie Bag">
+            <h3>Goodie Bag</h3>
+            <p>Kylie Cantrall</p>
+            <button class="btn-votar">Votar</button>
+        </div>
+
+        <div class="card" data-item="Boy For a Day">
+            <img src="../assets/img/Boy_For_a_Day.jpg" alt="Boy For a Day">
+            <h3>Boy For a Day</h3>
+            <p>Kylie Cantrall</p>
+            <button class="btn-votar">Votar</button>
+        </div>
+
+        <div class="card" data-item="Elastic">
+            <img src="../assets/img/Elastic.jpg" alt="Elastic">
+            <h3>Elastic</h3>
+            <p>Kylie Cantrall</p>
+            <button class="btn-votar">Votar</button>
+        </div>
+
+        <div class="card" data-item="Red">
+            <img src="../assets/img/Red.jpg" alt="Red">
+            <h3>Red</h3>
+            <p>Kylie Cantrall</p>
+            <button class="btn-votar">Votar</button>
+        </div>
+
+        <div class="card" data-item="like-a-movie">
+            <img src="../assets/img/10_Minute_Songs.jpg" alt="Like a Movie">
+            <h3>Like a Movie</h3>
+            <p>Kylie Cantrall</p>
+            <button class="btn-votar">Votar</button>
+        </div>
+
+    </div>
+
+    <footer class="site-footer">
+    <p>© Todos os Direitos Reservados à Jornal Kylie Cantrall 2025</p>
+    <img src="../assets/img/Logo_Grammy.png" class="logo-footer" alt="logo">
+    <a href="sobre.html" class="sobre">Sobre a Premiação</a>
+</footer>
+
+    <!-- NOTIFICAÇÃO -->
+    <div id="toast" class="toast"></div>
+
+    <!-- JS -->
+    <script src="../assets/js/votar.js" defer></script>
 
 </body>
 </html>
