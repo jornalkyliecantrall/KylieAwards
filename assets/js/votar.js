@@ -1,39 +1,35 @@
-// garante que exista um objeto de votos
+// pega votos existentes
 let votos = JSON.parse(localStorage.getItem("votos")) || {};
 
-// seleciona todos os botões de votar
+// 🔥 categoria vem do BODY
+const categoria = document.body.dataset.categoria;
+
+if (!categoria) {
+    console.error("Categoria não definida no body");
+}
+
+// evento de voto
 document.querySelectorAll(".btn-votar").forEach(botao => {
     botao.addEventListener("click", () => {
         const card = botao.closest(".card");
-
-        const categoria = document.title
-            .toLowerCase()
-            .replace("kylie awards – ", "")
-            .replace(/\s+/g, "-")
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "");
-
         const indicado = card.dataset.item;
 
-        // cria categoria se não existir
         if (!votos[categoria]) {
             votos[categoria] = {};
         }
 
-        // soma voto
-        votos[categoria][indicado] = (votos[categoria][indicado] || 0) + 1;
+        votos[categoria][indicado] =
+            (votos[categoria][indicado] || 0) + 1;
 
-        // salva no localStorage
         localStorage.setItem("votos", JSON.stringify(votos));
 
         mostrarToast("Voto computado com sucesso!");
     });
 });
 
-// feedback visual
+// toast
 function mostrarToast(texto) {
     const toast = document.getElementById("toast");
-
     if (!toast) return;
 
     toast.textContent = texto;
