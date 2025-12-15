@@ -1,50 +1,60 @@
-// 🔒 PROTEÇÃO
-if (
-    location.pathname.includes("categorias") ||
-    location.pathname.includes("resultados")
-) {
-    if (localStorage.getItem("admLogado") !== "true") {
-        window.location.href = "login.html";
-    }
+// proteção ADM (se você já usa sessionStorage)
+if (sessionStorage.getItem("adm") !== "true") {
+    window.location.href = "../index.html";
 }
 
-// 👉 abrir categoria
-function abrirCategoria(categoria) {
-    localStorage.setItem("categoriaSelecionada", categoria);
-    window.location.href = "resultados.html";
-}
+// pega votos
+const votos = JSON.parse(localStorage.getItem("votos")) || {};
 
-// 👉 carregar resultados
-document.addEventListener("DOMContentLoaded", () => {
-    const titulo = document.getElementById("tituloCategoria");
-    const lista = document.getElementById("listaResultados");
+// adiciona evento nos botões
+document.querySelectorAll(".btn-votar").forEach(botao => {
+    botao.addEventListener("click", () => {
+        const card = botao.closest(".card");
+        const categoria = card.dataset.item;
 
-    if (!titulo || !lista) return;
+        abrirResultados(categoria);
+    });
+});
 
-    const categoria = localStorage.getItem("categoriaSelecionada");
-    const votos = JSON.parse(localStorage.getItem("votos")) || {};
+function abrirResultados(categoria) {
+    const dados = votos[categoria];
 
-    titulo.textContent = categoria.replace("-", " ").toUpperCase();
+    const titulo = document.getElementById("modalTitulo");
+    const lista = document.getElementById("modalResultados");
 
-    const dados = votos[categoria] || {};
+    titulo.textContent = formatarNome(categoria);
+    lista.innerHTML = "";
 
-    const ordenado = Object.entries(dados)
-        .sort((a, b) => b[1] - a[1]);
-
-    if (ordenado.length === 0) {
-        lista.innerHTML = "<p>Sem votos ainda</p>";
+    if (!dados || Object.keys(dados).length === 0) {
+        lista.innerHTML = "<li>Nenhum voto registrado.</li>";
+        abrirModal();
         return;
     }
 
-    ordenado.forEach(([nome, total]) => {
-        const card = document.createElement("div");
-        card.className = "card";
+    // ordena por votos
+    const ranking = Object.entries(dados)
+        .sort((a, b) => b[1] - a[1]);
 
-        card.innerHTML = `
-            <h3>${nome}</h3>
-            <p>${total} votos</p>
-        `;
-
-        lista.appendChild(card);
+    ranking.forEach(([nome, qtd]) => {
+        const li = document.createElement("li");
+        li.textContent = `${nome} — ${qtd} votos`;
+        lista.appendChild(li);
     });
-});
+
+    abrirModal();
+}
+
+function abrirModal() {
+    document.getElementById("modal").style.display = "flex";
+}
+
+function fecharModal() {
+    document.getElementById("modal").style.display = "none";
+}
+
+// deixa o nome bonito
+function formatarNome(texto) {
+    return texto
+        .replace(/-/g, " ")
+        .replace(/\b\w/g, l => l.toUpperCase());
+}
